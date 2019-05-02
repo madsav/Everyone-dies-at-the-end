@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class Wolf_Movement : MonoBehaviour
 {
-
+    //pārvietošanās
     public bool isgrounded;
+    public bool isSitting;
     private float speed;
-    private float walk_speed = 0.05f;
-    private float run_speed = 0.1f;
-
+    private float walk_speed = 0.2f;
+    private float run_speed = 0.4f;
     public float rotate_speed;
+
+    //animal destroying
+    public GameObject DestroyingObjectsSelected;
+    public bool isDestroying;
+    public float DestroyingTimer;
+    public Vector3 DestroyingStartPosition;
+
+    //Dying
+   
+    public bool isDying;
+ 
 
     Rigidbody rbody;
     Animator anime;
@@ -28,33 +39,54 @@ public class Wolf_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //   var z = Input.GetAxis("Vertical") * speed;
-     //   var y = Input.GetAxis("Horizontal") * rotate_speed;
 
-        if (isgrounded)
-        {
-            if (Input.GetKey(KeyCode.W))
-                
-            {
-                anime.SetBool("isWalking", true);
-                anime.SetBool("isRunning", false);
-                anime.SetBool("isIddle", false);
-            }            
+        if (Input.GetKeyDown(KeyCode.LeftControl))
 
-            else if (Input.GetKey(KeyCode.S))
+            if (isSitting)
             {
-                anime.SetBool("isWalking", true);
-                anime.SetBool("isRunning", false);
-                anime.SetBool("isIddle", false);
+                isSitting = false;
+                anime.SetBool("isSitting", false);
+                caps_col.height = 1;
+                caps_col.center = new Vector3(0, 0.5f, 0);
             }
             else
             {
-                anime.SetBool("isWalking", false);
-                anime.SetBool("isRunning", false);
-                anime.SetBool("isIddle", true);
+                isSitting = true;
+                anime.SetBool("isSitting", true);
+                caps_col.height = 1;
+                caps_col.center = new Vector3(0, 0.5f, 0);
             }
+        var z = Input.GetAxis("Vertical") * speed;
+        var y = Input.GetAxis("Horizontal") * rotate_speed;
+
+        transform.Translate(0, 0, z);
+        transform.Rotate(0, y, 0);
+
+        //   if (isgrounded)
+        //   {
+        if (Input.GetKey(KeyCode.W))
+
+        {
+            anime.SetBool("isWalking", true);
+            anime.SetBool("isRunning", false);
+            anime.SetBool("isIddle", false);
         }
-        else if (Input.GetKey(KeyCode.LeftShift))
+
+        else if (Input.GetKey(KeyCode.S))
+        {
+            anime.SetBool("isWalking", true);
+            anime.SetBool("isRunning", false);
+            anime.SetBool("isIddle", false);
+        }
+        else
+        {
+            anime.SetBool("isWalking", false);
+            anime.SetBool("isRunning", false);
+            anime.SetBool("isIddle", true);
+        }
+        //    }
+        // else 
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = run_speed;
             if (Input.GetKey(KeyCode.W))
@@ -77,7 +109,7 @@ public class Wolf_Movement : MonoBehaviour
             }
         }
 
-        else if (Input.GetKey(KeyCode.W))
+        else if (!isSitting)
         {
             speed = walk_speed;
             if (Input.GetKey(KeyCode.W))
@@ -99,6 +131,108 @@ public class Wolf_Movement : MonoBehaviour
                 anime.SetBool("isIddle", true);
             }
         }
-    }
 
+        else if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = run_speed;
+            if (Input.GetKey(KeyCode.W))
+            {
+                anime.SetBool("isWalking", false);
+                anime.SetBool("isRunning", true);
+                anime.SetBool("isIddle", false);
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                anime.SetBool("isWalking", false);
+                anime.SetBool("isRunning", true);
+                anime.SetBool("isIddle", false);
+            }
+            else
+            {
+                anime.SetBool("isWalking", false);
+                anime.SetBool("isRunning", false);
+                anime.SetBool("isIddle", true);
+            }
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            RightClickObject();
+        }
+
+        if (isDestroying)
+        {
+            if (DestroyingTimer > 0)
+            {
+                DestroyingTimer -= Time.deltaTime;
+            }
+            else
+            {
+                print("Destroyed animal");
+                isDestroying = false;
+                Destroy(DestroyingObjectsSelected.gameObject);
+            }
+        //    if (this.transform.position != DestroyingStartPosition)
+     //       {
+        //        isDestroying = false;
+     //           print("player moved");
+       //     }
+
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            LeftClickObject();
+        }
+
+        if (isDying)
+        {
+           
+                print("YOU DIED");
+                isDying= false;
+                Destroy(gameObject);
+            }
+
+
+        }
+        void RightClickObject()
+        {
+            Ray ray =Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 2000))
+                if (hit.transform.tag == "animal") { 
+            {
+                if (!isDestroying)
+                {
+                    print("destroying");
+                    DestroyingObjectsSelected = hit.transform.gameObject;
+                    DestroyingTimer = 0.5f;
+                    isDestroying = true;
+                }
+            }
+        }
+    }
+    void LeftClickObject()
+    {
+        Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit2;
+
+        if (Physics.Raycast(ray2, out hit2, 2000))
+            if (hit2.transform.tag == "Death")
+            {
+                {
+                    if (!isDying)
+                    {
+                        print("dying");
+                        DestroyingTimer = 0.5f;
+                        isDying = true;
+                    }
+                }
+            }
+    }
+ void OnCollisionEnter()
+    {
+        isgrounded = true;
+
+    }
+ 
 }
