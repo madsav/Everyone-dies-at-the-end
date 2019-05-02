@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Wolf_Movement : MonoBehaviour
 {
@@ -8,16 +9,20 @@ public class Wolf_Movement : MonoBehaviour
     public bool isgrounded;
     public bool isSitting;
     private float speed;
-    private float walk_speed = 0.2f;
-    private float run_speed = 0.4f;
+    private float walk_speed = 0.5f;
+    private float run_speed = 1f;
     public float rotate_speed;
+    public static int count;
+    public Text countText;
+    public static int countdeath;
+    public Text endgame;
 
     //animal destroying
     public GameObject DestroyingObjectsSelected;
     public bool isDestroying;
     public float DestroyingTimer;
     public Vector3 DestroyingStartPosition;
-
+   
     //Dying
    
     public bool isDying;
@@ -34,6 +39,10 @@ public class Wolf_Movement : MonoBehaviour
         anime = GetComponent<Animator>();
         caps_col = GetComponent<CapsuleCollider>();
         isgrounded = true;
+
+        count = 0;
+        countdeath = 0;
+        SetCountText();
     }
 
     // Update is called once per frame
@@ -62,8 +71,6 @@ public class Wolf_Movement : MonoBehaviour
         transform.Translate(0, 0, z);
         transform.Rotate(0, y, 0);
 
-        //   if (isgrounded)
-        //   {
         if (Input.GetKey(KeyCode.W))
 
         {
@@ -170,12 +177,11 @@ public class Wolf_Movement : MonoBehaviour
                 print("Destroyed animal");
                 isDestroying = false;
                 Destroy(DestroyingObjectsSelected.gameObject);
+                count = count + 1;
+                SetCountText();
+
             }
-        //    if (this.transform.position != DestroyingStartPosition)
-     //       {
-        //        isDestroying = false;
-     //           print("player moved");
-       //     }
+
 
         }
         if (Input.GetMouseButtonDown(0))
@@ -189,8 +195,10 @@ public class Wolf_Movement : MonoBehaviour
                 print("YOU DIED");
                 isDying= false;
                 Destroy(gameObject);
-            }
-
+            countdeath = count + 1;
+            //endgame.text = "YOU DIED!";
+        }
+     
 
         }
         void RightClickObject()
@@ -207,7 +215,8 @@ public class Wolf_Movement : MonoBehaviour
                     DestroyingObjectsSelected = hit.transform.gameObject;
                     DestroyingTimer = 0.5f;
                     isDestroying = true;
-                }
+                    
+                    }
             }
         }
     }
@@ -229,10 +238,17 @@ public class Wolf_Movement : MonoBehaviour
                 }
             }
     }
- void OnCollisionEnter()
-    {
-        isgrounded = true;
 
+    void SetCountText()
+    {
+        countText.text = "Count: " + count.ToString();
+
+        if (countdeath >= 12)
+        {
+            endgame.text = "YOU DIED!";
+        }
     }
- 
+
+
+
 }
