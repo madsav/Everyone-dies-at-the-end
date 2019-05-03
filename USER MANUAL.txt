@@ -1,9 +1,15 @@
+Galvenâ scene ir EDATE2
+
 1. nospiest kreiso ctrl, lai galvenais spçles objekts nostâtos spçles sâkumpozîcijâ
+
 2. kustîbas:
 W - ieðana uz priekðu
 S - ieðana atpakaï
 A & D - rotçðanai.
+
 3. Spçles mçríis ir nokïût pie lielâ dimanta izejot cauri labirintam, tomçr, lai tam piekïûtu pa ceïam ir jâiznîcina 6 dzîvnieciòi, kas atrodas sarkanos apïos. 
 Pienâkot pie sarkanâ apïa ar labo peles taustiòu ir jâmçìina uzklikðíinât tuvumâ esoðajam dzîvnieciòam, ja tiek uzklikðíinâts korekti, tad 3 sekunþu laikâ tas tiks iznîcinâts. 
-4.Spçle seko lîdzi, cik dzîvnieki pa ceïam ir iznîcinâti, un tikai iznîcinot visus pazudîs kolonna, kas stâv priekðâ dimantam. 
+
+4.Spçle seko lîdzi, cik dzîvnieki pa ceïam ir iznîcinâti, un, tikai iznîcinot visus 6, pazudîs kolonna, kas stâv priekðâ dimantam. 
+
 5.nokïûstot pie dimanta, ieiet tajâ iekðâ, un uz dimanta nospiest ar labo peles taustiòu.
