@@ -9,8 +9,8 @@ public class Wolf_Movement : MonoBehaviour
     public bool isgrounded;
     public bool isSitting;
     private float speed;
-    private float walk_speed = 0.5f;
-    private float run_speed = 1f;
+    private float walk_speed = 0.4f;
+    private float run_speed = 0.8f;
     public float rotate_speed;
     public static int count;
     public Text countText;
@@ -243,7 +243,7 @@ public class Wolf_Movement : MonoBehaviour
     {
         countText.text = "Count: " + count.ToString();
 
-        if (countdeath >= 12)
+        if (countdeath >= 1)
         {
             endgame.text = "YOU DIED!";
         }

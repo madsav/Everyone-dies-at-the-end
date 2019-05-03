@@ -1,15 +1,21 @@
-Galvenâ scene ir EDATE2
+ï»¿GalvenÄ scene ir EDATE2______
 
-1. nospiest kreiso ctrl, lai galvenais spçles objekts nostâtos spçles sâkumpozîcijâ
+_____1. nospiest kreiso ctrl, lai galvenais spÄ“les objekts nostÄtos spÄ“les sÄkumpozÄ«cijÄ
 
-2. kustîbas:
-W - ieğana uz priekğu
-S - ieğana atpakaï
-A & D - rotçğanai.
+_____2. kustÄ«bas:
+W - ieÅ¡ana uz priekÅ¡u
+S - ieÅ¡ana atpakaÄ¼
+A & D - rotÄ“Å¡anai.
 
-3. Spçles mçríis ir nokïût pie lielâ dimanta izejot cauri labirintam, tomçr, lai tam piekïûtu pa ceïam ir jâiznîcina 6 dzîvnieciòi, kas atrodas sarkanos apïos. 
-Pienâkot pie sarkanâ apïa ar labo peles taustiòu ir jâmçìina uzklikğíinât tuvumâ esoğajam dzîvnieciòam, ja tiek uzklikğíinâts korekti, tad 3 sekunşu laikâ tas tiks iznîcinâts. 
+_____3. SpÄ“les mÄ“rÄ·is ir nokÄ¼Å«t pie lielÄ dimanta izejot cauri labirintam, tomÄ“r, lai tam piekÄ¼Å«tu pa ceÄ¼am ir jÄiznÄ«cina 6 balti dzÄ«vnieciÅ†i, kas atrodas sarkanos apÄ¼os. 
+PienÄkot pie sarkanÄ apÄ¼a ar labo peles taustiÅ†u ir jÄmÄ“Ä£ina uzklikÅ¡Ä·inÄt tuvumÄ esoÅ¡ajam dzÄ«vnieciÅ†am, ja tiek uzklikÅ¡Ä·inÄts korekti, tad 3 sekunÅ¾u laikÄ tas tiks iznÄ«cinÄts. 
 
-4.Spçle seko lîdzi, cik dzîvnieki pa ceïam ir iznîcinâti, un, tikai iznîcinot visus 6, pazudîs kolonna, kas stâv priekğâ dimantam. 
+...P.s. Uz daÅ¾iem no dzÄ«vnieciÅ†iem ir grÅ«tÄk uzspiest, parasti rotÄ“jot galveno spÄ“les tÄ“lu ap tiem, to izdevÄs atrisinÄt. TÄpat man nesanÄca pilnÄ«bÄ sakÄrtot tos brÄ«Å¾us, gan galvenais tÄ“ls saskrienas ar sienu vai citu objektu. ja saskrieÅ¡anÄs notiek pÄrÄk strauji, tad galvenais tÄ“ls tiek atstumts atpakaÄ¼, un citi tÄ“li var tikt izkustinÄti, bet kad tÄ“ls atkal nolaiÅ¾as atpakaÄ¼ vietÄ, spÄ“li var turpinÄt.
 
-5.nokïûstot pie dimanta, ieiet tajâ iekğâ, un uz dimanta nospiest ar labo peles taustiòu.
+____4.SpÄ“le seko lÄ«dzi, cik dzÄ«vnieki pa ceÄ¼am ir iznÄ«cinÄti, un, tikai iznÄ«cinot visus 6, pazudÄ«s kolonna, kas stÄv priekÅ¡Ä dimantam. 
+
+____5.nokÄ¼Å«stot pie dimanta, ieiet tajÄ iekÅ¡Ä, un uz dimanta nospiest ar labo peles taustiÅ†u.
+
+
+
+P.S. Man nesanÄca izvadÄ«t tekstu uz ekrÄna, par to ka galvenais spÄ“les objekts ir iznÄ«cinÄts, bet tas parÄdÄs konsolÄ“, kad tas ir noticis (lai gan pÄ“c tam salec daudz error, teksts console ir atrodams). 
